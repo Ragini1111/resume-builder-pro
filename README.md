@@ -1,6 +1,6 @@
 # Resume Builder Pro
 
-Live demo: https://resume-builder-pro-git-main-ragini1111s-projects.vercel.app
+Live demo: https://resume-builder-pro-opal.vercel.app
 
 ATS-friendly 1-page resume builder for engineering students. No signup, no backend. Fill details → Download PDF. 
 
