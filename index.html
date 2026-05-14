@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume Builder v2 | Ragini Gupta</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <div class="form">
+    <div class="toolbar">
+      <h2 style="margin:0 0 12px;">Resume Builder v2</h2>
+      <div class="row">
+        <div>
+          <label>Template Color</label>
+          <select id="theme" onchange="changeTheme()">
+            <option value="#3b82f6">Professional Blue</option>
+            <option value="#16a34a">PCB Green</option>
+            <option value="#7c3aed">Modern Purple</option>
+            <option value="#111827">Minimal Black</option>
+          </select>
+        </div>
+        <div>
+          <label>Font Size</label>
+          <input type="range" min="11" max="14" value="13" oninput="document.getElementById('resume').style.fontSize=this.value+'px'">
+        </div>
+      </div>
+      <button onclick="downloadPDF()">Download PDF Resume</button>
+      <button class="btn-sec" onclick="loadExample()">Load Example</button>
+      <button class="btn-sec" onclick="if(confirm('Clear all data?')){localStorage.clear(); location.reload()}">Reset</button>
+      <button onclick="loadData()" style="background: #16a34a;"></button>
+    </div>
+
+    <h2>Basic Info</h2>
+    <label>Full Name</label><input id="name" oninput="update()">
+    <label>Tagline</label><input id="tagline" placeholder="ECE @ AOT | Developer" oninput="update()">
+    <div class="row">
+      <div><label>Email</label><input id="email" type="email" oninput="update()"></div>
+      <div><label>Phone</label><input id="phone" oninput="update()"></div>
+    </div>
+    <div class="row">
+      <div><label>GitHub</label><input id="github" placeholder="github.com/you" oninput="update()"></div>
+      <div><label>LinkedIn</label><input id="linkedin" placeholder="linkedin.com/in/you" oninput="update()"></div>
+    </div>
+
+    <h2>Education</h2>
+    <label>College</label><input id="edu1" placeholder="B.Tech ECE, Academy of Technology, Hooghly" oninput="update()">
+    <div class="row">
+      <div><label>Year</label><input id="edu2" placeholder="2022-2026" oninput="update()"></div>
+      <div><label>CGPA</label><input id="edu3" placeholder="CGPA: 8.7/10" oninput="update()"></div>
+    </div>
+
+    <h2>Experience <button class="btn-sec" onclick="addExperience()" style="margin:0; padding:4px 10px;">+ Add</button></h2>
+    <div id="exp-container"></div>
+
+    <h2>Projects <button class="btn-sec" onclick="addProject()" style="margin:0; padding:4px 10px;">+ Add</button></h2>
+    <div id="project-container"></div>
+
+    <h2>Skills</h2>
+    <label>Languages</label><input id="skills1" placeholder="C, C++, Python, Verilog, 8085 Assembly" oninput="update()">
+    <label>Tech/Tools</label><input id="skills2" placeholder="React, Node.js, Git, Arduino, MATLAB" oninput="update()">
+
+    <h2>Achievements</h2>
+    <textarea id="achieve" placeholder="- Rank 1, College 8085 Debugging Contest 2025" oninput="update()"></textarea>
+  </div>
+
+  <div class="preview">
+    <div id="resume">
+      <h1 id="r-name">Your Name</h1>
+      <div class="contact" id="r-contact"></div>
+      
+      <div id="r-edu-section"></div>
+      <div id="r-exp-section"></div>
+      <div id="r-proj-section"></div>
+
+      <h2>SKILLS</h2>
+      <div class="skills">
+        <strong>Languages:</strong> <span id="r-skills1"></span><br>
+        <strong>Tech/Tools:</strong> <span id="r-skills2"></span>
+      </div>
+
+      <h2>ACHIEVEMENTS</h2>
+      <ul id="r-achieve"></ul>
+    </div>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
