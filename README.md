@@ -1,6 +1,6 @@
 # Resume Builder Pro
 
-Live demo: https://ragini-gupta.github.io/resume-builder-pro/
+Live demo: [resume-builder-i0xa58i4g-ragini1111s-projects.vercel.app]
 
 ATS-friendly 1-page resume builder for engineering students. No signup, no backend. Fill details → Download PDF. 
 
